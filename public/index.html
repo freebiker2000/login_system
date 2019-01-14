@@ -13,6 +13,21 @@
       homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- firebase server link -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAqVu1Pm_9M67juVHpcHedfcw_lqXMIF8E",
+        authDomain: "login-create-acc.firebaseapp.com",
+        databaseURL: "https://login-create-acc.firebaseio.com",
+        projectId: "login-create-acc",
+        storageBucket: "login-create-acc.appspot.com",
+        messagingSenderId: "437660771062"
+      };
+      firebase.initializeApp(config);
+    </script>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -27,6 +42,7 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <pre JSON.stringify(data[server], null, 2)></pre>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -38,4 +54,5 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+
 </html>
