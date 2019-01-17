@@ -2,11 +2,13 @@
   "users": [
     {
       "name": "user1",
-      "password": "user1pass"
+      "password": "user1pass",
+      "id": 1
     },
     {
-      "name": "user2",
-      "password": "user2pass"
+      "name": "testing",
+      "password": "pass_testing",
+      "id": 2
     }
   ]
 }

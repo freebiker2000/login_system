@@ -4,7 +4,6 @@ class Header extends Component {
   render() {
     return(
       <h1>Welcome to Log-in Sistem</h1>
-      
     )
   }
 }
