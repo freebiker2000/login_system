@@ -40,7 +40,7 @@ render() {
         <input
           ref={pass => this.passwordInput = pass} />
       </p>
-      <button onClick = {this.pushAcc} type="submit"> SUBMIT </button>
+      <button onClick = {this.pushAcc} type="submit"> SIGN UP </button>
     </div>
   )
 }
