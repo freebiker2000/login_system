@@ -24,7 +24,7 @@ function MenuLink({ label, to, active }) {
       exact={active}
       children={({ match }) => (
         <div className={match ? "active" : ""}>
-          <Link to={to}>{label}></Link>
+          <Link to={to}>{label}</Link>
         </div>
       )}
     />
