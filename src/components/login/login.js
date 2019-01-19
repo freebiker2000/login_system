@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
 import { BASE_URL } from '../constant/constant';
+import Input from '../input/input'
 
 class Login extends Component {
 
@@ -10,20 +11,19 @@ class Login extends Component {
       .get(`${BASE_URL}users`,
       {
         name: this.nameInput.value,
-        password: this.passInput.value
+        password: this.passwordInput.value
       },
       {
         'Content-Type': 'aplication/json'
       })
     } catch(e){
+      console.log()
     }
   }
 
   render() {
     return(
-      <div>
-        <button> SIGN IN </button>
-      </div>
+      <Input />
     )
   }
 }
