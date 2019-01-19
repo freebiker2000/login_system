@@ -1,6 +1,7 @@
 import React, {Component } from 'react';
 import Axios from 'axios';
-const BASE_URL = 'http://localhost:3456/'
+import Input from '../input/input'
+import { BASE_URL } from '../constant/constant'
 
 class AddAcc extends Component {
   constructor(props) {
@@ -28,20 +29,7 @@ class AddAcc extends Component {
   }
 render() {
   return(
-    <div>
-      <p>
-        <input
-          ref={name => this.nameInput = name} />
-      </p>
-      <div>
-        <h3>Enter Password</h3>
-      </div>
-      <p>
-        <input
-          ref={pass => this.passwordInput = pass} />
-      </p>
-      <button onClick = {this.pushAcc} type="submit"> SIGN UP </button>
-    </div>
+    <Input />
   )
 }
 }
