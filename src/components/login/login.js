@@ -10,14 +10,14 @@ class Login extends Component {
       await Axios
       .get(`${BASE_URL}users`,
       {
-        name: this.nameInput.value,
-        password: this.passwordInput.value
+        name: this.name,
+        password: this.password
       },
       {
         'Content-Type': 'aplication/json'
       })
     } catch(e){
-      console.log()
+      console.log(e)
     }
   }
 

@@ -1,5 +1,7 @@
-import React from 'react'
-import {BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import React from 'react';
+import {BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import AddAcc from '../create_acc/create_acc';
+import Login from '../login/login';
   
 function Menu() {
   return (
@@ -33,16 +35,18 @@ function MenuLink({ label, to, active }) {
 
 function LOG_IN() {
   return(
-    <div>
+    <div className="input">
       <h3>LOG-IN</h3>
+      <Login />
     </div>
   )
 }
 
 function SIGN_UP() {
   return(
-    <div>
+    <div className="input">
       <h3>SIGN UP</h3>
+      <AddAcc />
     </div>
   )
 }
