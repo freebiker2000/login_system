@@ -5,9 +5,7 @@ class Main extends Component {
   render() {
     return(
       <div>
-        <div>
-          <Menu />
-        </div>
+        <Menu />
       </div>
     )
   }
