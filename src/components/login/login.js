@@ -10,24 +10,20 @@ class Login extends Component {
     this.getAcc = this.getAcc.bind(this)
   }
   async getAcc() {
-    try {
-      await Axios
-      .get(`${BASE_URL}users`,
-        {
-          name: this.nameInput.value,
-          password: this.passInput.value
-        }
-      )
-      .then(
-        function checkAcc(response) {
-          response.data.some(obj => {
-            if(obj.name !== this.nameInput.value)
-            return alert('ii bun')
-          })
-        }
-      )
-    } catch(e){
-    }
+    let {data} = await Axios
+      .get(`${BASE_URL}users`)
+    var name = data.map((e) => {
+      return e.name
+    })
+    var pass = data.map((e) => {
+      return e.password
+    })
+    console.log(name)
+    console.log(pass)
+  }
+  
+  componentDidMount() {
+    this.getAcc();
   }
     
     render() {
