@@ -12,20 +12,17 @@ class Login extends Component {
   async getAcc() {
     let {data} = await Axios
       .get(`${BASE_URL}users`)
-    var name = data.map((e) => {
-      return e.name
-    })
-    var pass = data.map((e) => {
-      return e.password
-    })
-    console.log(name)
-    console.log(pass)
-  }
-  
-  componentDidMount() {
-    this.getAcc();
-  }
-    
+      data.forEach(({name, password}) => {
+        if(this.nameInput.value === name && this.passInput.value === password){
+          alert('ii bun')
+        }
+        else {
+          alert('nu ii bun')
+        }
+      }
+    )
+} 
+      
     render() {
       return(
         <div>
