@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import { BASE_URL } from '../constant/constant';
-// import Input from '../input/input'
+
 
 class Login extends Component {
   constructor(props){
@@ -18,6 +19,7 @@ class Login extends Component {
         }
         else {
           alert('nu ii bun')
+          return false
         }
       }
     )
@@ -27,9 +29,13 @@ class Login extends Component {
       return(
         <div>
           <h3>Enter Username</h3>
-          <input ref={name => this.nameInput = name} type="text"/>
+          <p>
+            <input ref={name => this.nameInput = name} type="text"/>
+          </p>
           <h3>Enter Password</h3>
-          <input ref={pass => this.passInput = pass} type="text"/>
+          <p>
+            <input ref={pass => this.passInput = pass} type="text"/>
+          </p>
           <button onClick={this.getAcc} type="submit"> LOG IN </button>
         </div>
         )
