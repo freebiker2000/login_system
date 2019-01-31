@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+// import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import { BASE_URL } from '../constant/constant';
 
 

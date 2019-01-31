@@ -18,6 +18,12 @@ class AddAcc extends Component {
           {
             name: this.nameInput.value,
             password: this.passwordInput.value,
+            email: this.emailInput.value,
+            first_name: this.first_nameInput.value,
+            last_name: this.last_nameInput.value,
+            gender: this.genderInput.value,
+            pic: this.picInput.value,
+            about: this.aboutInput.value,
           },
           {
             'Content-Type': 'aplication/json'
@@ -29,19 +35,39 @@ class AddAcc extends Component {
   }
   render() {
     return(
-      <div>
-        <h3>Enter Username or E-mail</h3>
-        <p>
+      <div className="input_wrapper">
+        <h4>Enter Username
           <input
-            ref={name => this.nameInput = name} />
-        </p>
-        <div>
-          <h3>Enter Password</h3>
-        </div>
-        <p>
+            ref={name => this.nameInput = name}/>
+            </h4>
+        <h4>Enter Password
           <input
-            ref={pass => this.passwordInput = pass} />
-        </p>
+            ref={pass => this.passwordInput = pass}/>
+         </h4> 
+        <h4>Enter E-Mail
+          <input
+            ref={email => this.emailInput = email}/>
+         </h4> 
+        <h4>Enter First Name
+          <input
+            ref={first_name => this.first_nameInput = first_name}/>
+         </h4> 
+        <h4>Enter Last Name
+          <input
+            ref={last_name => this.last_nameInput = last_name}/>
+         </h4> 
+        <h4>Select Gender
+          <input
+            ref={gender => this.genderInput = gender}/>
+         </h4> 
+        <h4>Upload profile pic
+          <input
+            ref={pic => this.picInput = pic}/>
+         </h4> 
+        <h4>Enter a short description
+          <input
+            ref={about => this.aboutInput = about}/>
+         </h4> 
         <button onClick = {this.pushAcc} type="submit"> SIGN UP </button>
       </div>
     )

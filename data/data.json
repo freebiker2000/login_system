@@ -3,22 +3,13 @@
     {
       "name": "user1",
       "password": "user1pass",
-      "id": 1
-    },
-    {
-      "name": "testing",
-      "password": "pass_testing",
-      "id": 2
-    },
-    {
-      "name": "fewfew",
-      "password": "321312",
-      "id": 3
-    },
-    {
-      "name": "pula me",
-      "password": "laba",
-      "id": 4
+      "id": 1,
+      "email": "",
+      "first_name": "",
+      "last_name": "",
+      "gender": "",
+      "profile_pic": "",
+      "about": ""
     }
   ]
 }
