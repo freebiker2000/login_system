@@ -1,13 +1,38 @@
+
 .App {
   text-align: center;
   max-width: 100%;
 }
 
-.input_wrapper {
-  justify-content: space-evenly;
+.input_wrapper  
+ {
+  min-width: 35%;
+  display: flex;
+  flex-direction: column;
+  /* justify-items: center; */
+  /* margin-bottom: -1rem; */
+  /* margin-left: auto;
+  margin-right: auto; */
 }
 
-.input_wrapper :nth-child(each) {
-  display: block;
-  justify-content: space-between;
+
+.input_wrapper
+h4 {
+  position: relative;
+  margin-top: -0.5rem;
+  /* margin-left: auto; */
+  margin-right: 10rem;
+}
+
+.input_wrapper
+input {
+  position: absolute;
+  margin-left: 2.5rem;
+  margin-top: -2.65rem;
+}
+
+button {
+  font-size: 1rem;
+  background-color: blue;
+  color: white;
 }
