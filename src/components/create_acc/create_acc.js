@@ -19,11 +19,13 @@ class AddAcc extends Component {
             name: this.nameInput.value,
             password: this.passwordInput.value,
             email: this.emailInput.value,
-            first_name: this.first_nameInput.value,
-            last_name: this.last_nameInput.value,
-            gender: this.genderInput.value,
-            pic: this.picInput.value,
-            about: this.aboutInput.value,
+            details: {
+              first_name: this.first_nameInput.value,
+              last_name: this.last_nameInput.value,
+              gender: this.genderInput.value,
+              pic: this.picInput.value,
+              about: this.aboutInput.value,
+            }
           },
           {
             'Content-Type': 'aplication/json'
