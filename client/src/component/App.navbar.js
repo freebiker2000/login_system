@@ -12,10 +12,7 @@ import {
 
 const AppNavbar = () => {
 
-  const [ state, toogle ] = useState({
-    isOpen: false
-  })
-  console.log(state)
+  const [ state, toogle ] = useState(false)
 
   return(
     <div>
