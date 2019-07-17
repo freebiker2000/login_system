@@ -12,15 +12,15 @@ import {
 
 const AppNavbar = () => {
 
-  const [ state, toogle ] = useState(false)
+  const [ navExpand, toogle ] = useState(false)
 
   return(
     <div>
       <Navbar color="dark" dark expand="sm" className="mb-5">
         <Container>
           <NavbarBrand href="/">Shopping List</NavbarBrand>
-          <NavbarToggler onClick={() => toogle(state ? false : true)} />
-          <Collapse isOpen={state} navbar >
+          <NavbarToggler onClick={() => toogle(navExpand ? false : true)} />
+          <Collapse isOpen={navExpand} navbar >
             <Nav className="ml-auto" navbar >
               <NavItem>
                 <NavLink href="https://github.com/freebiker2000">
