@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Container, ListGroup, ListGroupItem, Button} from 'reactstrap';
 import { CSSTransition, TransitionGroup} from 'react-transition-group';
 import { connect } from 'react-redux';
@@ -31,10 +31,10 @@ const ShoppingList = ({itemList, deleteItem}) => {
   )
 }
 
-ShoppingList.propTypes = {
-  getItems: PropTypes.func.isRequired,
-  item: PropTypes.object.isRequired
-}
+// ShoppingList.propTypes = {
+//   getItems: PropTypes.func.isRequired,
+//   item: PropTypes.object.isRequired
+// }
 
 const mapStateToProps = state => ({itemList: state.item})
 
