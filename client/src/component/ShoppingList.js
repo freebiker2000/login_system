@@ -1,24 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, ListGroup, ListGroupItem, Button} from 'reactstrap';
 import { CSSTransition, TransitionGroup} from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getItems, deleteItem } from '../redux/action/itemAction';
 import PropTypes from 'prop-types';
 
-const ShoppingList = ({itemList, deleteItem}) => {
+const ShoppingList = ({itemList, deleteItem, getItems}) => {
+
+  useEffect(() => {
+    getItems();
+  }, [])
 
   return(
     <Container>
       <ListGroup>
         <TransitionGroup className="shopping-list">
-          {itemList.map(({ id, name }) => (
-            <CSSTransition key={id} timeout={500} classNames="fade">
+          {itemList.items.map(({ _id, name }) => (
+            <CSSTransition key={_id} timeout={500} classNames="fade">
               <ListGroupItem>
                 <Button 
                   className="remove-btn" 
                   color="danger" 
                   size="sm" 
-                  onClick={() => deleteItem(id)}
+                  onClick={() => deleteItem(_id)}
                 >&times;
                 </Button>
                 {name}
@@ -31,11 +35,11 @@ const ShoppingList = ({itemList, deleteItem}) => {
   )
 }
 
-// ShoppingList.propTypes = {
-//   getItems: PropTypes.func.isRequired,
-//   item: PropTypes.object.isRequired
-// }
+ShoppingList.propTypes = {
+  getItems: PropTypes.func.isRequired,
+  // items: PropTypes.object.isRequired
+}
 
-const mapStateToProps = state => ({itemList: state.item})
+const mapStateToProps = state => ({itemList: state.itemReducer})
 
 export default connect(mapStateToProps, { getItems, deleteItem })(ShoppingList);

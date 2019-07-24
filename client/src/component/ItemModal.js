@@ -2,17 +2,15 @@ import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addItem } from '../redux/action/itemAction';
-import uuid from 'uuid';
 
 const ItemModal = ({addItem}) => {
   let [ modal, toogle ] = useState(false);
-  console.log(modal)
 
   const onSubmit = e => {
     e.preventDefault();
     const { value } = e.target.name
     const newItem = {
-      id: uuid(),
+      // id: uuid(),
       name: value
     }
     addItem(newItem);
@@ -39,7 +37,7 @@ const ItemModal = ({addItem}) => {
         <ModalHeader>Add item to List</ModalHeader>
         <ModalBody>
           <Form onSubmit={onSubmit}>
-            {/* <FormGroup> */}
+            <FormGroup>
               <Label for='item'>Item</Label>
               <Input
                 type='text'
@@ -54,7 +52,7 @@ const ItemModal = ({addItem}) => {
                 block>
                 Add Item
               </Button>
-            {/* </FormGroup> */}
+            </FormGroup>
           </Form>
         </ModalBody>
       </Modal>
@@ -62,8 +60,9 @@ const ItemModal = ({addItem}) => {
   )
 }
 
+
 const mapStateToProps = state => ({
-  item: state.item
+  item: state.items
 })
 
 export default connect(mapStateToProps, { addItem } )(ItemModal)
