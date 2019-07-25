@@ -1,5 +1,6 @@
 {
   "env": {
-    "MONGO_ATLAS_PW": "mern_project"
+    "MONGO_ATLAS_PW": "mern_project",
+    "NODE_ENV": "production"
   }
 }
