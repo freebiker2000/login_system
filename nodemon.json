@@ -1,6 +1,6 @@
 {
   "env": {
-    "MONGO_ATLAS_PW": "mern_project",
-    "NODE_ENV": "production"
+    "MONGO_DB_PASS": "mern_project",
+    "PORT": "https://quiet-retreat-30638.herokuapp.com/"
   }
 }

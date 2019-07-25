@@ -11,8 +11,9 @@ const app = express();
 app.use(bodyParser.json());
 
 // DB config
+const db = require('./config/keys').mongoURI;
 mongoose
-  .connect('mongodb+srv://catalin:'+ process.env.MONGO_ATLAS_PW +'@mern-project-ueyld.mongodb.net/test?retryWrites=true&w=majority',
+  .connect(db,
   {
     useNewUrlParser: true
   })
@@ -21,7 +22,7 @@ mongoose
 
 // use routes
 app.use('/api/items', items);
-console.log(process.env.NODE_ENV)
+console.log(process.env)
 
 // serve static assets if in production
 if(process.env.NODE_ENV === 'production') {
