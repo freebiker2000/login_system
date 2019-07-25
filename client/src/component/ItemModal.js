@@ -10,16 +10,11 @@ const ItemModal = ({addItem}) => {
     e.preventDefault();
     const { value } = e.target.name
     const newItem = {
-      // id: uuid(),
       name: value
     }
     addItem(newItem);
     toogle();
   }
-
-  // const onChange = () => {
-
-  // }
 
   return(
     <div>

@@ -9,6 +9,7 @@ const ShoppingList = ({itemList, deleteItem, getItems}) => {
 
   useEffect(() => {
     getItems();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return(
