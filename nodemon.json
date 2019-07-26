@@ -1,6 +1,5 @@
 {
   "env": {
-    "MONGO_DB_PASS": "mern_project",
-    "PORT": "https://quiet-retreat-30638.herokuapp.com/api/items"
+    "MONGO_DB_PASS": "mern_project"
   }
 }
