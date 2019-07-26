@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/freebiker2000/login_system/issues"
   },
-  "homepage": "https://github.com/freebiker2000/login_system#readme",
+  "homepage": "https://quiet-retreat-30638.herokuapp.com/",
   "dependencies": {
     "body-parser": "^1.19.0",
     "concurrently": "^4.1.1",
