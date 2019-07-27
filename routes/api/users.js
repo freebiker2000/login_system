@@ -4,7 +4,7 @@ const router = express.Router();
 // User model
 const User = require('../../models/User.schema');
 
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
   res.send('register')
 });
 
