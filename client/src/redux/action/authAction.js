@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { returnErrors } from './errorAction';
-import { USER_LOADING, 
+import { 
+  USER_LOADING, 
   USER_LOADED,
   AUTH_ERROR,
   LOGIN_SUCCESS,
@@ -26,13 +27,37 @@ export const loadUser = () => (dispach, getState) => {
         type: AUTH_ERROR
       })
     })
+};
+
+// register user
+
+export const register = ({ name, email, password }) => dispach => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  const body = JSON.stringify({name, email, password});
+
+  axios.post('/api/users', body, config)
+    .then(res => dispach({
+      type: REGISTER_SUCCESS,
+      payload: res.data
+    }))
+    .catch(err => {
+      dispach(returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL'));
+      dispach({
+        type: REGISTER_FAIL,
+      })
+    })
 }
 
 export const tokenConfig = getState => {
   // get token from local storage
   const token = getState().token;
 
-  // setheaders
+  // set headers
   const config = {
     headers: {
       "Content-Type": "application/json"
