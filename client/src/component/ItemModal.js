@@ -4,7 +4,11 @@ import { connect } from 'react-redux';
 import { addItem } from '../redux/action/itemAction';
 
 const ItemModal = ({addItem}) => {
-  let [ modal, toogle ] = useState(false);
+  const [ modal, setModal ] = useState(false);
+
+  const toggle = () => {
+    setModal(!modal)
+  }
 
   const onSubmit = e => {
     e.preventDefault();
@@ -13,7 +17,7 @@ const ItemModal = ({addItem}) => {
       name: value
     }
     addItem(newItem);
-    toogle();
+    toggle();
   }
 
   return(
@@ -21,13 +25,13 @@ const ItemModal = ({addItem}) => {
       <Button
         color='dark'
         style={{marginBottom: '2rem'}}
-        onClick={toogle}
+        onClick={toggle}
       >
         Add Item
       </Button>
       <Modal
         isOpen={modal}
-        toogle={() => toogle((modal ? false : true))}
+        toggle={toggle}
       >
         <ModalHeader>Add item to List</ModalHeader>
         <ModalBody>
