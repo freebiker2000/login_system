@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, NavLink, Alert } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { register } from '../../redux/action/authAction'
+import { register } from '../../redux/action/authAction';
+import { clearErrors } from '../../redux/action/errorAction';
 
-const RegisterModal = ({ register, error}) => {
+const RegisterModal = ({ register, error, clearErrors}) => {
   const [ modal, setModal ] = useState(false);
   const [ user, setUser ] = useState({
     name: '',
@@ -13,17 +14,14 @@ const RegisterModal = ({ register, error}) => {
     msg: null
   })
 
-  const mounted = useRef(user.msg);
-  console.log(modal)
+  console.log(user)
   useEffect(() => {
-    if(error !== mounted.current) {
-      if(error.id === 'REGISTER_FAIL') {
-        setUser({msg: error.message.message})
-      } else {
-        setUser({msg: null})
-      }
+    if(error.id === 'REGISTER_FAIL') {
+      setUser({msg: error.message.message})
+    } else {
+      setUser({msg: null})
     }
-  }, [user.msg])
+  }, [error.id])
 
   const onSubmit = e => {
     e.preventDefault();
@@ -31,11 +29,17 @@ const RegisterModal = ({ register, error}) => {
     const newUser = {
       name, email, password
     }
+    console.log(e)
     register(newUser)
   };
 
   const toggle = () => {
+    clearErrors();
     setModal(!modal)
+  }
+
+  const onChange = e => {
+    return setUser({ [e.target.name]: e.target.value})
   }
 
   return(
@@ -59,6 +63,7 @@ const RegisterModal = ({ register, error}) => {
                 id='name'
                 placeholder='Name'
                 className='mb-3'
+                onChange={onChange}
               />
 
               <Label for='email'>Email</Label>
@@ -68,6 +73,7 @@ const RegisterModal = ({ register, error}) => {
                 id='email'
                 placeholder='Enter E-mail'
                 className='mb-3'
+                onChange={onChange}
               />
 
               <Label for='password'>Password</Label>
@@ -77,9 +83,11 @@ const RegisterModal = ({ register, error}) => {
                 id='password'
                 placeholder='Enter Password'
                 className='mb-3'
+                onChange={onChange}
               />
 
               <Button
+                type="submit"
                 color='dark'
                 style={{marginTop: '2rem'}}
                 block>
@@ -102,7 +110,8 @@ const mapStateToProps = state => ({
 RegisterModal.propTypes = {
   isAuthenticated: PropTypes.bool,
   error: PropTypes.object.isRequired,
-  register: PropTypes.func.isRequired
+  register: PropTypes.func.isRequired,
+  clearErrors: PropTypes.func.isRequired
 }
 
-export default connect(mapStateToProps, { register } )(RegisterModal)
+export default connect(mapStateToProps, { register, clearErrors } )(RegisterModal)
