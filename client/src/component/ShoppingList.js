@@ -23,7 +23,7 @@ const ShoppingList = ({itemList, deleteItem, getItems}) => {
                   className="remove-btn" 
                   color="danger" 
                   size="sm" 
-                  onClick={() => deleteItem(_id)}
+                  onClick={deleteItem(_id)}
                 >&times;
                 </Button>
                 {name}

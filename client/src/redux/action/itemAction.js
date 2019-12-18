@@ -5,7 +5,7 @@ export const getItems = () => dispach => {
   dispach(itemsLoading());
   axios
     .get('/api/items')
-    .then(res => 
+    .then(res =>
       dispach({
         type: GET_ITEMS,
         payload: res.data
@@ -26,13 +26,13 @@ export const addItem = item => dispach =>  {
 
 export const deleteItem = id => dispach => {
   axios
-    .delete(`/api/items/${id}`)
-    .then(res => {
-      dispach({
-        type: DELETE_ITEM,
-        id
-      })
+  .delete(`/api/items/${id}`)
+  .then(res => {
+    dispach({
+      type: DELETE_ITEM,
+      id
     })
+  })
 }
 
 export const itemsLoading = () => ({
