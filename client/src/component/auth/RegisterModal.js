@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { register } from '../../redux/action/authAction';
 import { clearErrors } from '../../redux/action/errorAction';
 
-const RegisterModal = ({ register, error, clearErrors}) => {
+const RegisterModal = ({ register, error, clearErrors, isAuthenticated}) => {
   const [ modal, setModal ] = useState(false);
   const [ user, setUser ] = useState({
     name: '',
@@ -14,14 +14,18 @@ const RegisterModal = ({ register, error, clearErrors}) => {
     msg: null
   })
 
-  console.log(user)
+  // console.log(user)
   useEffect(() => {
     if(error.id === 'REGISTER_FAIL') {
       setUser({msg: error.message.message})
     } else {
       setUser({msg: null})
+    };
+
+    if(isAuthenticated) {
+      toggle();
     }
-  }, [error.id])
+  }, [error.id, isAuthenticated])
 
   const onSubmit = e => {
     e.preventDefault();
@@ -29,8 +33,8 @@ const RegisterModal = ({ register, error, clearErrors}) => {
     const newUser = {
       name, email, password
     }
-    console.log(e)
-    register(newUser)
+    console.log(user)
+    return register(newUser)
   };
 
   const toggle = () => {
@@ -39,7 +43,8 @@ const RegisterModal = ({ register, error, clearErrors}) => {
   }
 
   const onChange = e => {
-    return setUser({ [e.target.name]: e.target.value})
+    console.log(user.name, user.email, user.password)
+    return setUser({ ...user, [e.target.name]: e.target.value})
   }
 
   return(

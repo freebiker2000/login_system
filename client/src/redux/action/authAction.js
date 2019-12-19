@@ -53,6 +53,12 @@ export const register = ({ name, email, password }) => dispach => {
     })
 }
 
+export const logout = () => {
+  return {
+    type: LOGOUT_SUCCESS
+  }
+}
+
 export const tokenConfig = getState => {
   // get token from local storage
   const token = getState().token;
