@@ -9,6 +9,7 @@ import {
   LOGOUT_SUCCESS,
   REGISTER_SUCCESS, 
   REGISTER_FAIL } from './types';
+import authReducer from '../reducer/authReducer';
 
 // check token and load user
 
@@ -53,6 +54,29 @@ export const register = ({ name, email, password }) => dispach => {
     })
 }
 
+export const login = ({ email, password }) => dispach => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  const body = JSON.stringify({ email, password});
+
+  axios.post('/api/auth', body, config)
+    .then(res => dispach({
+      type: LOGIN_SUCCESS,
+      payload: res.data
+    }))
+    .catch(err => {
+      dispach(returnErrors(err.response.data, err.response.status, 'LOGIN_FAIL'));
+      dispach({
+        type: LOGIN_FAIL,
+      })
+    })
+}
+
+
 export const logout = () => {
   return {
     type: LOGOUT_SUCCESS
@@ -61,7 +85,7 @@ export const logout = () => {
 
 export const tokenConfig = getState => {
   // get token from local storage
-  const token = getState().token;
+  const token = getState().authReducer.token;
 
   // set headers
   const config = {

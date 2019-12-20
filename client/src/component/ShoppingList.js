@@ -7,6 +7,8 @@ import PropTypes from 'prop-types';
 
 const ShoppingList = ({itemList, deleteItem, getItems}) => {
 
+  console.log(itemList)
+
   useEffect(() => {
     getItems();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -23,7 +25,7 @@ const ShoppingList = ({itemList, deleteItem, getItems}) => {
                   className="remove-btn" 
                   color="danger" 
                   size="sm" 
-                  onClick={deleteItem(_id)}
+                  onClick={() =>deleteItem(_id)}
                 >&times;
                 </Button>
                 {name}
@@ -38,7 +40,7 @@ const ShoppingList = ({itemList, deleteItem, getItems}) => {
 
 ShoppingList.propTypes = {
   getItems: PropTypes.func.isRequired,
-  // items: PropTypes.object.isRequired
+  itemList: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({itemList: state.itemReducer})
