@@ -9,7 +9,6 @@ import {
   LOGOUT_SUCCESS,
   REGISTER_SUCCESS, 
   REGISTER_FAIL } from './types';
-import authReducer from '../reducer/authReducer';
 
 // check token and load user
 
